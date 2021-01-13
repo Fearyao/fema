@@ -2,7 +2,7 @@
  * @Description: 节点
  * @Author: WYY
  * @Date: 2021-01-11 09:59:13
- * @LastEditTime: 2021-01-11 17:45:23
+ * @LastEditTime: 2021-01-13 11:07:47
  * @LastEditors: WYY
 -->
 <template>
@@ -23,8 +23,11 @@
       >
         {{ node.hideChild ? "+" : "-" }}
       </span>
+      <span class="toggle-info" @click="toggleInfo(node)">
+        {{ node.hideInfo ? "+" : "-" }}
+      </span>
     </div>
-    <div class="infos">
+    <div class="infos" v-if="!node.hideInfo">
       <div>功能/失效</div>
       <div>要求/规范</div>
     </div>
@@ -47,6 +50,10 @@ export default {
     ...mapActions("tree", ["setState"]),
     toggleChild(target) {
       this.$set(target, "hideChild", !target.hideChild);
+      this.$store.dispatch("tree/reset");
+    },
+    toggleInfo(target) {
+      this.$set(target, "hideInfo", !target.hideInfo);
       this.$store.dispatch("tree/reset");
     }
   },
@@ -73,11 +80,13 @@ export default {
     }
   }
   .infos {
+    margin-top: 5px;
     text-align: left;
     color: aqua;
     font-size: 12px;
   }
 
+  .toggle-info,
   .toggle-child {
     position: absolute;
     right: -5px;
@@ -92,6 +101,11 @@ export default {
     color: white;
     background: rgb(0, 140, 255);
     z-index: 1;
+  }
+  .toggle-info {
+    top: calc(100% - 4px);
+    left: calc(50% - 6px);
+    background: #ccc;
   }
 
   .focused {

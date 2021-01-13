@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: WYY
  * @Date: 2021-01-09 11:02:25
- * @LastEditTime: 2021-01-11 17:49:31
+ * @LastEditTime: 2021-01-13 10:38:16
  * @LastEditors: WYY
 -->
 <template>
@@ -69,5 +69,6 @@ export default {
   height: 500px;
   border: 1px solid #cccccc;
   position: relative;
+  overflow: hidden;
 }
 </style>
