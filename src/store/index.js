@@ -17,7 +17,6 @@ requireModules.keys().forEach(file => {
   }
 });
 
-console.log("%c⧭", "color: #917399", modules);
 export default new Vuex.Store({
   state: {},
   mutations: {},

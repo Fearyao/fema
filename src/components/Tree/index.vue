@@ -2,13 +2,11 @@
  * @Description: 
  * @Author: WYY
  * @Date: 2021-01-09 11:02:25
- * @LastEditTime: 2021-01-13 10:54:57
+ * @LastEditTime: 2021-01-13 14:10:09
  * @LastEditors: WYY
 -->
 <template>
   <div>
-    {{ treeData }}
-    <hr />
     <div
       ref="DC"
       :class="{ 'drag-container': true, canDrag: spaceKeydown }"
@@ -81,7 +79,6 @@ export default {
         var endx = event.clientX - sb_bkx;
         var endy = event.clientY - sb_bky;
 
-        console.log("%c⧭", "color: #00b300", endx, endy);
         _target.style.left = endx + "px";
         _target.style.top = endy + "px";
       };

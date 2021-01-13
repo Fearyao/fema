@@ -2,20 +2,27 @@
  * @Description: 
  * @Author: WYY
  * @Date: 2021-01-09 11:02:25
- * @LastEditTime: 2021-01-13 10:38:16
+ * @LastEditTime: 2021-01-13 13:52:21
  * @LastEditors: WYY
 -->
 <template>
-  <div class="tree-container">
-    <Tree :treeData="treeData" />
+  <div class="home">
+    <div class="tree-container">
+      <Tree :treeData="treeData" />
+    </div>
+    <div class="bandary-container">
+      <Bandary />
+    </div>
   </div>
 </template>
 
 <script>
-import Tree from "@/components/Tree/index.vue";
+import Tree from "@/components/Tree";
+import Bandary from "@/components/Bandary";
 export default {
   components: {
-    Tree
+    Tree,
+    Bandary
   },
   props: {},
   computed: {},
@@ -64,11 +71,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.tree-container {
-  width: 500px;
-  height: 500px;
-  border: 1px solid #cccccc;
-  position: relative;
-  overflow: hidden;
+.home {
+  display: flex;
+  justify-content: flex-start;
+  .bandary-container,
+  .tree-container {
+    width: 500px;
+    height: 500px;
+    border: 1px solid #cccccc;
+    position: relative;
+    overflow: hidden;
+  }
 }
 </style>
